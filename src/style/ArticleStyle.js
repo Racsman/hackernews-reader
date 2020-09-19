@@ -6,28 +6,29 @@ export const ArticleWrapper = styled.section`
 	cursor: pointer;
 	display: block;
 	overflow: hidden;
-	border-radius: .3rem;
-	box-shadow:
-		0 .1rem .1rem 0 rgba(33, 33, 33, 0.08), 
-		0 .1rem .3rem .1rem rgba(33, 33, 33, 0.16);
-		
+    border-radius: .3rem;
+    width: 100%;
+    
+    box-shadow:
+        0 .1rem .1rem 0 rgba(33, 33, 33, 0.08), 
+        0 .1rem .3rem .1rem rgba(33, 33, 33, 0.16);
+    
 	&.active {
 		background-color: #f6f5f5;
 	}
 
-	&.active,
-	:hover {
-		box-shadow: 
-			0 .1rem .3rem .1rem rgba(33, 33, 33, 0.2), 
-			0 .2rem .8rem .4rem rgba(33, 33, 33, 0.1)
-	}
-
-	
-	> h2 {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	}
+    &.active,    
+    :hover {
+        box-shadow: 
+            0 .1rem .3rem .1rem rgba(33, 33, 33, 0.2), 
+            0 .2rem .8rem .4rem rgba(33, 33, 33, 0.1)
+    }
+    
+    > h2 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 `;
 
 export const ArticleTitle = styled.h2`

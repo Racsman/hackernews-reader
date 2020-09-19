@@ -12,10 +12,10 @@ export const ArticleList = ({ onClick }) => {
 	}, []);
 
 	return (
-		<div>
+		<>
 			{articleIds.slice(0, articleNumber).map(articleId => (
 				<Article articleId={articleId} onClick={onClick} key={articleId}/>
 			))}
-		</div>
+		</>
 	);
 };
