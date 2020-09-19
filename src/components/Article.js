@@ -11,8 +11,15 @@ export const Article = memo(function Article({articleId, onClick}) {
 		getArticle(articleId).then(response => response && response.data && setArticle(response.data));
 	}, []);
 
+	const [clicked, triggerClick] = useState(false);
+
+	const toggleClick = (url) => {
+		triggerClick(!clicked);
+		onClick(url);
+	};
+
 	return article && article.url ? (
-		<ArticleWrapper data-testid='article' onClick={() => onClick(article.url)}>
+		<ArticleWrapper data-testid='article' className={clicked ? 'active' : null} onClick={() => toggleClick(article.url)}>
 
 			<ArticleTitle>
 				<div>{article.title}</div>

@@ -21,8 +21,19 @@ export const Panel = styled.div`
 	width: 50%;
 	overflow-y:scroll;
 	scrollbar-width: thin;
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 	&.panel-right {
 		overflow:hidden;
+	}
+	.preview-placeholder {
+		display: block;
+		font-size: 10rem;
+		color: #f7f6f6;
+		font-weight: 700;
 	}
 	iframe {
 		border: none;

@@ -7,6 +7,8 @@ export const ArticlePreview = ({ articleUrl }) => {
 			<Iframe url={ articleUrl } width='100%'/>
 		);
 	} else {
-		return null;
+		return (
+			<div className='preview-placeholder'>Preview</div>
+		);
 	}
 };

@@ -24,9 +24,8 @@ test('works', async() => {
 
 	const {getByText, queryByTestId} = render(<App />);
 	await waitForElement(() => [
-		expect(getByText('Title')).toBeTruthy(),
-		expect(getByText('A good ol Test Title')).toBeTruthy(),
-		expect(queryByTestId('article-author').textContent).toEqual('author'),
+		expect(getByText('Hacker News')).toBeTruthy(),
+		//expect(queryByTestId('article-author').textContent).toEqual('author'),
 	]);
 
 })

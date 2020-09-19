@@ -6,7 +6,7 @@ export const Navbar = () => {
 		<nav>
 			<div>
 				<div className='branding'>
-					<img src='/logo.png' className='brand-logo' width='40' height='40'/>
+					<img src='/logo.png' className='brand-logo' alt='HN Reader' width='40' height='40'/>
 					<div className='brand-name'>Hacker News</div>
 				</div>
 			</div>
