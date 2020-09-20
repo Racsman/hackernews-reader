@@ -6,27 +6,28 @@ import {ArticleList} from '../components/ArticleList';
 import {ArticlePreview} from '../components/ArticlePreview';
 
 export const ReaderContainer = () => {
-	const [articleUrl, setArticleUrl] = React.useState('')
+	const [articleUrl, setArticleUrl] = React.useState('');
+	const [refreshTrigger, refreshList] = React.useState(false);
+	const [isLoading, loadingInProgress] = React.useState(true);
+
+
 	const handleArticleClick = (articleUrl) => {
 		setArticleUrl(articleUrl);
 	};
-
-	const [refreshTrigger, refreshList] = React.useState(false)
 	const handleRefreshClick = () => {
-		refreshList('ceva test');
+		refreshList(true);
+		loadingInProgress(true);
 	};
-
-	const [incarca, updateloadingInProgress] = React.useState(false)
-	const loadingInProgress = () => {
-		updateloadingInProgress(true);
+	const loadingList = (articlesLoading) => {
+		loadingInProgress(articlesLoading);
 	};
 
 	return(
 		<>
-			<Navbar triggerReload={handleRefreshClick} loadingInProgress={loadingInProgress}/>
+			<Navbar triggerReload={handleRefreshClick} isLoading={isLoading} />
 			<SplitPanel
 				master={
-					<ArticleList reloadList={refreshTrigger}  test={incarca} onClick={handleArticleClick} />
+					<ArticleList reloadList={refreshTrigger} loadingList={loadingList} onClick={handleArticleClick} />
 				}
 	            detail={
 		            <ArticlePreview articleUrl={articleUrl} />

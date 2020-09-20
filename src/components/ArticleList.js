@@ -3,25 +3,25 @@ import {Article} from './Article';
 import {InfiniteScroll} from '../hooks/InfiniteScroll';
 import {getArticleIds} from '../services/readerAxios';
 
-export const ArticleList = ({ reloadList, onClick }) => {
+export const ArticleList = ({ reloadList, onClick, loadingList }) => {
 	const {articleNumber} = InfiniteScroll();
 	const [articleIds, setArticleIds] = useState([]);
+	const [article, updateArticles] = useState(true);
 
-	const retrieveTutorials = () => {
+	const retrieveArticles = () => {
 		getArticleIds()
 			.then(article => setArticleIds(article.data));
 	};
-
 	useEffect(() => {
-		retrieveTutorials();
+		retrieveArticles();
 	}, []);
 
-	const [article, updateArticles] = useState(true);
+	useEffect(() => loadingList(true), [articleIds, articleNumber]);
 
 	if (reloadList && article) {
 		reloadList = false;
 		updateArticles(false);
-		retrieveTutorials();
+		retrieveArticles();
 	}
 
 	return (

@@ -40,10 +40,28 @@ nav {
 		border: none;
 		padding: .5rem;
 		background: #FFF;
-		box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+		box-shadow:
+			0 .3rem .5rem -0.1rem rgba(0,0,0,.2),
+			0 .6rem .10rem 0 rgba(0,0,0,.14),
+			0 .1rem .18rem 0 rgba(0,0,0,.12);
 		border-radius: 4rem;
+		&.active svg {
+			animation:rotation .5s linear;
+		}
 		&:hover, &:focus {
-			box-shadow: 0 7px 8px -4px rgba(0,0,0,.2),0 12px 17px 2px rgba(0,0,0,.14),0 5px 22px 4px rgba(0,0,0,.12)
+			box-shadow:
+					0 .7rem .8rem -0.4rem rgba(0,0,0,.2),
+					0 .12rem .17rem .2rem rgba(0,0,0,.14),
+					0 .5rem .22rem .4rem rgba(0,0,0,.12)
+		}
+	}
+
+	@keyframes rotation {
+		from {
+			transform: rotate(359deg);
+		}
+		to {
+			transform: rotate(0deg);
 		}
 	}
 }

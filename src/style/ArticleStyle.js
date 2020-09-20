@@ -14,7 +14,7 @@ export const ArticleWrapper = styled.section`
         0 .1rem .3rem .1rem rgba(33, 33, 33, 0.16);
     
 	&.active {
-		background-color: #f6f5f5;
+		background-color: #F6F5F5;
 	}
 
     &.active,    
