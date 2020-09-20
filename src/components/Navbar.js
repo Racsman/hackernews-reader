@@ -10,7 +10,7 @@ export const Navbar = () => {
 					<div className='brand-name'>Hacker News</div>
 				</div>
 			</div>
-			<button type='button' className='loader-button'>
+			<button type='button' className='loader-button' aria-label='Reload'>
 				<ReloadPage width='3rem' height='3rem' fill='#202939'/>
 			</button>
 		</nav>

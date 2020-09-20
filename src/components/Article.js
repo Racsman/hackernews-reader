@@ -31,7 +31,7 @@ export const Article = memo(function Article({articleId, onClick}) {
 				</div>
 				<div>
 					{`${article.descendants} ${parseInt(article.descendants) === 1 ? 'comment' : 'comments'}`}
-					<a href={article.url} target='blank' rel='external nofollow'>
+					<a href={article.url} target='blank' rel='external nofollow' aria-label={article.title}>
 						<IconOpenExternal />
 					</a>
 				</div>
