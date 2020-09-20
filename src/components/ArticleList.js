@@ -19,7 +19,6 @@ export const ArticleList = ({ reloadList, onClick, loadingList }) => {
 	useEffect(() => loadingList(true), [articleIds, articleNumber]);
 
 	if (reloadList && article) {
-		reloadList = false;
 		updateArticles(false);
 		retrieveArticles();
 	}
@@ -27,7 +26,11 @@ export const ArticleList = ({ reloadList, onClick, loadingList }) => {
 	return (
 		<>
 			{articleIds.slice(0, articleNumber).map(articleId => (
-				<Article articleId={articleId} onClick={onClick} key={articleId}/>
+				<Article articleId={articleId}
+				         articleNumber={Object.keys(articleIds).find(_i => articleIds[_i] === articleId)}
+				         onClick={onClick}
+				         key={articleId}
+				/>
 			))}
 		</>
 	);

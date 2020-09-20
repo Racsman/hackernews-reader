@@ -4,14 +4,13 @@ import {FormatTimestampTimeAgo} from '../util/FormatTimestampTimeAgo';
 import {ArticleDetails, ArticleTitle, ArticleWrapper} from '../style/ArticleStyle';
 import {ReactComponent as IconOpenExternal} from '../icons/open.svg';
 
-export const Article = memo(function Article({articleId, onClick, isLoading}) {
+export const Article = memo(function Article({articleId, articleNumber, onClick, isLoading}) {
 	const [article, setArticle] = useState({});
 	const [clicked, triggerClick] = useState(false);
 
 	useEffect(() => {
 		getArticle(articleId).then(response => response && response.data && setArticle(response.data));
 	}, []);
-
 
 	const toggleClick = (url) => {
 		triggerClick(!clicked);
@@ -21,7 +20,7 @@ export const Article = memo(function Article({articleId, onClick, isLoading}) {
 	return article && article.url ? (
 		<ArticleWrapper data-testid='article' className={clicked ? 'active' : null} onClick={() => toggleClick(article.url)}>
 			<ArticleTitle>
-				{article.title}
+				{articleNumber}. {article.title}
 			</ArticleTitle>
 			<ArticleDetails>
 				<div>

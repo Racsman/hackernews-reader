@@ -31,7 +31,7 @@ export const Navbar = ({triggerReload, isLoading}) => {
 			        aria-label='Reload'
 			        onClick={(e) => triggerReloads(e)}
 			>
-				<ReloadPage width='3rem' height='3rem' fill='#202939'/>
+				<ReloadPage fill='#202939'/>
 			</button>
 		</nav>
 	);

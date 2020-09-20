@@ -20,4 +20,4 @@ export const dummyArticle = {
 	url: "https://www.google.com"
 };
 
-export const dummyArticleIds = [24517645];
+export const dummyArticleIds = [24517645, 24517645];

@@ -1,9 +1,9 @@
 @import-normalize;
 
-html {font-size: 62.5%}
+html { font-size: 62.5%; }
 body {
 	margin: 0;
-	font-family: Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+	font-family: Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 1.5;
@@ -12,14 +12,14 @@ body {
 	background-color: #FFF;
 }
 nav {
-	border-bottom: .5rem solid #FF6d00;
-	padding: 1.5em;
-	height: 4rem;
-	box-shadow: 0 .2rem .5rem rgba(0, 0, 0, 0.5);
 	display: flex;
 	flex-direction: row;
 	align-content: center;
 	justify-content: space-between;
+	height: 4rem;
+	padding: 1.5em;
+	border-bottom: .5rem solid #FF6D00;
+	box-shadow: 0 .2rem .5rem rgba(0, 0, 0, .5);
 	.branding {
 		display: flex;
 		.brand-logo {
@@ -36,23 +36,28 @@ nav {
 	}
 	.loader-button {
 		align-self: flex-end;
-		cursor: pointer;
-		border: none;
 		padding: .5rem;
+		cursor: pointer;
 		background: #FFF;
-		box-shadow:
-			0 .3rem .5rem -0.1rem rgba(0,0,0,.2),
-			0 .6rem .10rem 0 rgba(0,0,0,.14),
-			0 .1rem .18rem 0 rgba(0,0,0,.12);
+		border: none;
 		border-radius: 4rem;
-		&.active svg {
-			animation:rotation .5s linear;
+		box-shadow: 0 .2rem .4rem -.1rem rgba(0, 0, 0, .2), 0 .5rem .8rem 0 rgba(0, 0, 0, .2), 0 .1rem .18rem 0 rgba(0, 0, 0, .2);
+		svg {
+			width: 2.5rem;
+			height: 2.5rem;
+			@media (min-width: 768px) {
+				width: 3rem;
+				height: 3rem;
+			}
 		}
-		&:hover, &:focus {
-			box-shadow:
-					0 .7rem .8rem -0.4rem rgba(0,0,0,.2),
-					0 .12rem .17rem .2rem rgba(0,0,0,.14),
-					0 .5rem .22rem .4rem rgba(0,0,0,.12)
+		&.active {
+			svg {
+				animation: rotation .5s linear;
+			}
+		}
+		&:hover,
+		&:focus {
+			box-shadow: 0 .7rem .8rem -.4rem rgba(0, 0, 0, .2), 0 .12rem .17rem .2rem rgba(0, 0, 0, .14), 0 .5rem .22rem .4rem rgba(0, 0, 0, .12);
 		}
 	}
 

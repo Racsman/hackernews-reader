@@ -1,5 +1,5 @@
 import React from 'react';
-import {PanelContainer, Panel} from '../style/Panels'
+import {PanelContainer, Panel} from '../style/PanelStyle'
 
 export const SplitPanel = (props) => {
 	return(
