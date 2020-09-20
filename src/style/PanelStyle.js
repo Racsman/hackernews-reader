@@ -48,7 +48,6 @@ export const Panel = styled.div`
 		height: 100%;
 		overflow: hidden;
 		border: none;
-		padding-top: .3rem;
 	}
 	@media (min-width: 768px) {
 		width: 50%;
