@@ -7,12 +7,17 @@ export const InfiniteScroll = () => {
 	const [articleNumber, setArticleNumber] = useState(PAGE_ARTICLES);
 
 	const handleScroll = debounce(() => {
-		if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || load) {
+		if (load) {
 			return false
 		}
-
-		setLoad(true);
-	}, 500);
+		let scrollTop = document.getElementById('panel-left').scrollTop;
+		let scrollHeight = document.getElementById('panel-left').scrollHeight;
+		let offsetHeight = document.getElementById('panel-left').offsetHeight;
+		let contentHeight = scrollHeight - offsetHeight;
+		if (contentHeight <= scrollTop) {
+			setLoad(true);
+		}
+	}, 300);
 
 	useEffect(() => {
 		if (!load) return;
@@ -27,9 +32,8 @@ export const InfiniteScroll = () => {
 	}, [load]);
 
 	useEffect(() => {
-		window.addEventListener('scroll', handleScroll);
-
-		return () => window.removeEventListener('scroll', handleScroll);
+		document.getElementById('panel-left').addEventListener('scroll', handleScroll);
+		return () => document.getElementById('panel-left').removeEventListener('scroll', handleScroll);
 	}, []);
 
 	return {articleNumber};
