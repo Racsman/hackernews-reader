@@ -27,7 +27,7 @@ export const ArticleList = ({ reloadList, onClick, loadingList }) => {
 		<>
 			{articleIds.slice(0, articleNumber).map(articleId => (
 				<Article articleId={articleId}
-				         articleNumber={Object.keys(articleIds).find(_i => articleIds[_i] === articleId)}
+				         articleNumber={parseInt(Object.keys(articleIds).find(_i => articleIds[_i] === articleId)) + 1}
 				         onClick={onClick}
 				         key={articleId}
 				/>
