@@ -41,6 +41,18 @@ export const Panel = styled.div`
 			font-size: 10rem;
 		}
 	}
+	.preview-article {
+		font-size: 1.6rem;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		.preview-current {
+			padding: 3rem;
+			a {
+				color: #333;
+			}
+		}
+	}
 	iframe {
 		display: flex;
 		flex-direction: column;
@@ -62,5 +74,16 @@ export const Panel = styled.div`
 		&.panel-right {
 			border-top: none;
 		}
+	}
+`;
+
+export const Comment = styled.li`
+	border-top: .1rem solid rgba(0, 0, 0 , 0.3);
+	padding: 2rem;
+	font-size: 1.4rem;
+	.comment-meta {
+		font-size: 1.2rem;
+		color: #717171;
+		padding-bottom: 1rem;
 	}
 `;

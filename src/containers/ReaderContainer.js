@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import {Navbar} from '../components/Navbar';
 import {SplitPanel} from '../components/SplitPanel';
@@ -6,13 +7,12 @@ import {ArticleList} from '../components/ArticleList';
 import {ArticlePreview} from '../components/ArticlePreview';
 
 export const ReaderContainer = () => {
-	const [articleUrl, setArticleUrl] = React.useState('');
+	const [articleData, setArticleData] = React.useState('');
 	const [refreshTrigger, refreshList] = React.useState(false);
 	const [isLoading, loadingInProgress] = React.useState(true);
 
-
-	const handleArticleClick = (articleUrl) => {
-		setArticleUrl(articleUrl);
+	const handleArticleClick = (articleData) => {
+		setArticleData(articleData);
 	};
 	const handleRefreshClick = () => {
 		refreshList(true);
@@ -23,15 +23,32 @@ export const ReaderContainer = () => {
 	};
 
 	return(
-		<>
+		<Router>
 			<Navbar triggerReload={handleRefreshClick} isLoading={isLoading} />
 			<SplitPanel
 				master={
-					<ArticleList reloadList={refreshTrigger} loadingList={loadingList} onClick={handleArticleClick} />
+					<>
+						<Route path='/' exact>
+							<ArticleList reloadList={refreshTrigger}
+							             loadingList={loadingList}
+							             onClick={handleArticleClick}
+							             articleListType='newstories'
+							/>
+						</Route>
+						<Switch>
+							<Route path='/:id' render={({match}) =>
+								<ArticleList reloadList={refreshTrigger}
+								             loadingList={loadingList}
+								             onClick={handleArticleClick}
+								             articleListType={match.params.id}
+								/>
+							} />
+						</Switch>
+					</>
 				}
 	            detail={
-		            <ArticlePreview articleUrl={articleUrl} />
+		            <ArticlePreview articleData={articleData} />
 	            } />
-		</>
+		</Router>
 	);
 };

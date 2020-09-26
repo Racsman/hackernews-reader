@@ -50,6 +50,7 @@ export const ArticleDetails = styled.div`
 	justify-content: space-between;
 	font-size: 1rem;
 	color: #717171;
+	text-decoration: underline;
 
 	a,
 	a:hover,

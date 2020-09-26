@@ -22,15 +22,51 @@ nav {
 	box-shadow: 0 .2rem .5rem rgba(0, 0, 0, .5);
 	.branding {
 		display: flex;
-		.brand-logo {
-			margin-right: 2rem;
-			color: transparent;
+		.brand {
+			display: flex;
+			text-decoration: none;
+			color: #222;
+			.brand-logo {
+				margin-right: .5rem;
+				color: transparent;
+				@media (min-width: 768px) {
+					margin-right: 2rem;
+				}
+			}
+			.brand-name {
+				display:none;
+				@media (min-width: 768px) {
+					line-height: 4rem;
+					font-size: 4rem;
+					display: flex;
+				}
+			}
 		}
-		.brand-name {
-			font-size: 2rem;
-			line-height: 4rem;
+		.navbar {
+			list-style: none;
+			display: flex;
+			flex-direction: row;
+			padding-left: 0;
+			li {
+				list-style: none;
+				a {
+					padding: 1rem .4rem;
+					border-bottom: .5rem solid transparent;
+					text-decoration: none;
+					font-size: 1.3rem;
+					font-weight: 500;
+					color: #222;
+					&.active {
+						border-bottom: .2rem solid #FF6D00;
+					}
+					@media (min-width: 768px) {
+						padding: 1rem 1.5rem;
+						font-size: 1.6rem;
+					}
+				}
+			}
 			@media (min-width: 768px) {
-				font-size: 4rem;
+				padding-left: 2rem;
 			}
 		}
 	}

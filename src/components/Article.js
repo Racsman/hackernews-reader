@@ -7,22 +7,26 @@ import {ReactComponent as IconOpenExternal} from '../icons/open.svg';
 export const Article = memo(function Article({articleId, articleNumber, onClick, isLoading}) {
 	const [article, setArticle] = useState({});
 	const [clicked, triggerClick] = useState(false);
+	const articleDetails = article;
 
 	useEffect(() => {
 		getArticle(articleId).then(response => response && response.data && setArticle(response.data));
 	}, []);
 
-	const toggleClick = (url) => {
+	const toggleClick = (type) => {
 		triggerClick(!clicked);
-		onClick(url);
+		onClick({
+			details: articleDetails,
+			type: type
+		});
 	};
 
-	return article && article.url ? (
-		<ArticleWrapper data-testid='article' className={clicked ? 'active' : null} onClick={() => toggleClick(article.url)}>
-			<ArticleTitle>
+	return article && article.id ? (
+		<ArticleWrapper data-testid='article' className={clicked ? 'active' : null} >
+			<ArticleTitle onClick={() => toggleClick('preview')}>
 				{articleNumber}. {article.title}
 			</ArticleTitle>
-			<ArticleDetails>
+			<ArticleDetails onClick={() => toggleClick('details')}>
 				<div>
 					{`${article.score}
 					  ${parseInt(article.score) === 1 ? 'point' : 'points'}`
@@ -35,7 +39,6 @@ export const Article = memo(function Article({articleId, articleNumber, onClick,
 					</a>
 				</div>
 			</ArticleDetails>
-
 		</ArticleWrapper>
 	) : '';
 });
