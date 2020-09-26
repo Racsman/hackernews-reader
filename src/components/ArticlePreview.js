@@ -7,7 +7,8 @@ export const ArticlePreview = ({ articleData }) => {
 	if (articleData.details) {
 		articleDetails = articleData.details;
 	}
-	if (articleDetails) {
+
+	if (Object.keys(articleDetails).length !== 0) {
 		if (articleData.type === 'details' || !articleDetails.url) {
 			return (
 				<Story articleDetails={ articleDetails } />

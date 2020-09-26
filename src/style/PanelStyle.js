@@ -77,6 +77,10 @@ export const Panel = styled.div`
 	}
 `;
 
+export const CommentsHolder = styled.ul`
+	list-style-type: none;
+`;
+
 export const Comment = styled.li`
 	border-top: .1rem solid rgba(0, 0, 0 , 0.3);
 	padding: 2rem;

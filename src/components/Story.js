@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Comments} from './Comments';
-import {FormatTimestampTimeAgo} from '../util/FormatTimestampTimeAgo';
 import {getArticle} from '../services/readerAxios';
+import {FormatTimestampTimeAgo} from '../util/FormatTimestampTimeAgo';
 import {createMarkup} from '../util/createMarkup';
-import {ReactComponent as IconOpenExternal} from '../icons/open.svg';
+import {CommentsHolder} from '../style/PanelStyle';
 
 export const Story = ({ articleDetails }) => {
 	const [articleCommentsList, updateArticleCommentsList] = useState([]);
@@ -44,11 +44,11 @@ export const Story = ({ articleDetails }) => {
 					<div className='preview-text' dangerouslySetInnerHTML={createMarkup(articleDetails.text)} />
 				</div>
 				<div className='preview-comments'>
-					<ul>
+					<CommentsHolder>
 						{articleCommentsList.map(commentDetails => (
 							<Comments commentDetails={commentDetails} />
 						))}
-					</ul>
+					</CommentsHolder>
 				</div>
 			</div>
 		</>
